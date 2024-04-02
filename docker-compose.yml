@@ -10,3 +10,15 @@ services:
       - ${WORKSPACE_DIR}:/workspace
       - ./base/fish/fish_history:/root/.local/share/fish/fish_history
 
+  typescript:
+    image: ${PREFIX}-dev-typescript
+    build:
+      context: ./typescript
+      args:
+        - BASE_IMAGE=${PREFIX}-dev-base
+    environment:
+      - CONTAINER_NAME=${PREFIX}-dev-rust
+      - TERM=xterm-256color
+    volumes:
+      - ${WORKSPACE_DIR}:/workspace
+
