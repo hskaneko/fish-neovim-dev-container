@@ -6,7 +6,7 @@ services:
     environment:
       - CONTAINER_NAME=${PREFIX}-dev-base
       - TERM=xterm-256color
-    volumes: 
+    volumes:
       - ${WORKSPACE_DIR}:/workspace
       - ./base/fish/fish_history:/root/.local/share/fish/fish_history
 
