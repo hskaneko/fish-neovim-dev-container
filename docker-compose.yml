@@ -22,3 +22,15 @@ services:
     volumes:
       - ${WORKSPACE_DIR}:/workspace
 
+  rust:
+    image: ${PREFIX}-dev-rust
+    build:
+      context: ./rust
+      args:
+        - BASE_IMAGE=${PREFIX}-dev-base
+    environment:
+      - CONTAINER_NAME=${PREFIX}-dev-rust
+      - TERM=xterm-256color
+    volumes:
+      - ${WORKSPACE_DIR}:/workspace
+      - ./rust/fish/fish_history:/root/.local/share/fish/fish_history
