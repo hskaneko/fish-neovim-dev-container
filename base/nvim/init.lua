@@ -13,6 +13,7 @@ require('packer').startup(function()
   use 'junegunn/fzf.vim'
   use 'lukas-reineke/indent-blankline.nvim'
   use 'numToStr/Comment.nvim'
+  use 'github/copilot.vim'
 
   -- local satus, plugins = pcall(require, 'plugins')
   -- if status then
