@@ -34,3 +34,17 @@ services:
     volumes:
       - ${WORKSPACE_DIR}:/workspace
       - ./rust/fish/fish_history:/root/.local/share/fish/fish_history
+
+  python:
+    image: ${PREFIX}-dev-python
+    build:
+      context: ./python
+      args:
+        - BASE_IMAGE=${PREFIX}-dev-base
+    environment:
+      - CONTAINER_NAME=${PREFIX}-dev-python
+      - TERM=xterm-256color
+    volumes:
+      - ${WORKSPACE_DIR}:/workspace
+      - ./python/fish/fish_history:/root/.local/share/fish/fish_history
+
