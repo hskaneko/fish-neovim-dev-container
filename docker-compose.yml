@@ -6,6 +6,7 @@ services:
     environment:
       - CONTAINER_NAME=${PREFIX}-dev-base
       - TERM=xterm-256color
+      - USE_COPILOT=${USE_COPILOT:-false}
     volumes:
       - ${WORKSPACE_DIR}:/workspace
       - ./base/fish/fish_history:/root/.local/share/fish/fish_history
@@ -19,6 +20,7 @@ services:
     environment:
       - CONTAINER_NAME=${PREFIX}-dev-rust
       - TERM=xterm-256color
+      - USE_COPILOT=${USE_COPILOT:-false}
     volumes:
       - ${WORKSPACE_DIR}:/workspace
 
@@ -31,6 +33,7 @@ services:
     environment:
       - CONTAINER_NAME=${PREFIX}-dev-rust
       - TERM=xterm-256color
+      - USE_COPILOT=${USE_COPILOT:-false}
     volumes:
       - ${WORKSPACE_DIR}:/workspace
       - ./rust/fish/fish_history:/root/.local/share/fish/fish_history
@@ -44,6 +47,7 @@ services:
     environment:
       - CONTAINER_NAME=${PREFIX}-dev-python
       - TERM=xterm-256color
+      - USE_COPILOT=${USE_COPILOT:-false}
     volumes:
       - ${WORKSPACE_DIR}:/workspace
       - ./python/fish/fish_history:/root/.local/share/fish/fish_history

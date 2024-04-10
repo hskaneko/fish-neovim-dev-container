@@ -44,7 +44,10 @@ RUN nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerInstall'
 # setup CoC
 RUN cd /root/.local/share/nvim/site/pack/packer/start/coc.nvim/ && npm ci
 
+# setup Copilot (and run fish)
+COPY entrypoint.fish /entrypoint.fish
+RUN chmod +x /entrypoint.fish
+ENTRYPOINT ["/entrypoint.fish"]
 
+##################################################
 WORKDIR /workspace
-
-CMD ["fish"]

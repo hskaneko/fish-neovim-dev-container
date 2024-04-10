@@ -13,6 +13,9 @@ require('packer').startup(function()
   use 'junegunn/fzf.vim'
   use 'lukas-reineke/indent-blankline.nvim'
   use 'numToStr/Comment.nvim'
+  use 'github/copilot.vim'
+  use 'nvim-lua/plenary.nvim' -- for CopilotChat.nvim
+  use 'CopilotC-Nvim/CopilotChat.nvim'
 
   -- local satus, plugins = pcall(require, 'plugins')
   -- if status then
@@ -44,3 +47,15 @@ vim.api.nvim_set_keymap('n', '<leader>p', '<Plug>(coc-diagnostic-prev)', {silent
 
 -- run custom init script
 local status, err = pcall(require, 'init_custom')
+
+-- init CopilotChat.nvim
+local hosts_file = vim.fn.expand('~/.config/github-copilot/hosts.json')
+
+vim.loop.fs_stat(hosts_file, function(err, stat)
+  if not err and stat then
+    vim.schedule(function()
+      require('CopilotChat').setup()
+    end)
+  end
+end)
+
