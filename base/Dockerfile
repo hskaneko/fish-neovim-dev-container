@@ -1,6 +1,12 @@
 FROM alpine
 
-RUN apk update && apk add bash fish curl tmux neovim nodejs npm git tig fzf fd bat the_silver_searcher ripgrep
+RUN apk update && apk add bash fish tzdata curl tmux neovim nodejs npm git tig fzf fd bat the_silver_searcher ripgrep
+
+##################################################
+# timezone
+##################################################
+ENV TZ=Asia/Tokyo
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 ##################################################
 # fish
