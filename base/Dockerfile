@@ -1,6 +1,6 @@
 FROM alpine
 
-RUN apk update && apk add bash fish tzdata curl tmux neovim nodejs npm git tig fzf fd bat the_silver_searcher ripgrep
+RUN apk update && apk add bash fish tzdata curl openssh tmux neovim nodejs npm git tig fzf fd bat the_silver_searcher ripgrep
 
 ##################################################
 # timezone
